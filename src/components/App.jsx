@@ -11,7 +11,9 @@ export class App extends Component {
   };
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    this.storeContacts();
+    if (this.state.contacts !== prevState.contacts) {
+      this.storeContacts();
+    }
   }
 
   componentDidMount() {
